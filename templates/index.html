@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Responsive Bootstrap HTML Template - Sports</title>
+	<meta name="description"
+		content="A free responsive website template made exclusively for Frittt by Themesforce and Sarfraz Shaukat">
+	<meta name="keywords" content="website template, css3, one page, bootstrap, app template, web app, start-up">
+	<meta name="author" content="Themesforce and Sarfraz Shaukat for Frittt">
+	<link rel="icon" type="image/png" href="static/favicons/favicon-16x16.png" sizes="16x16">
+	<!-- <link rel="stylesheet" href="static/css/bootstrap.css"> -->
+	<!-- <link rel="stylesheet" href="static/fonts/font-awesome-4.3.0/css/font-awesome.min.css"> -->
+	<link rel="stylesheet" href="static/css/all.css">
+	<!-- <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700|Source+Sans+Pro:400,700,400italic,700italic' rel='stylesheet' type='text/css'> -->
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+		rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+		crossorigin="anonymous">
+	<!-- <link rel="stylesheet" type="text/css" href="../static/style.css"> -->
+	<!-- circular bar chart begin -->
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.6.1/d3.js"
+    integrity="sha512-pJbXh9nxFa1tkmI3Gxiay8+mKTW+QvM8aMrTSR4xcw671sTWkvlHBgnyqXCRr1HFkE0YwhoRZwcdUFFxP4D9Lg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+	<!-- circular bar chart end -->
+
+	<!-- Load d3.js -->
+	<script src="https://d3js.org/d3.v6.js"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<!-- Function for radial charts -->
+	<script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/d3-scale-radial.js"></script>
+</head>
+
+<body>
+	<div id="wrapper">
+		<header id="header">
+			<div class="container">
+				<div class="logo"><a href="#"><img src="static/images/logo.png" alt="Sports"></a></div>
+				<nav id="nav">
+					<div class="opener-holder">
+						<a href="#" class="nav-opener"><span></span></a>
+					</div>
+					<a href="javascript:" class="btn btn-primary rounded">Enroll Today</a>
+					<div class="nav-drop">
+						<ul>
+							<li class="active visible-sm visible-xs"><a href="#">Home</a></li>
+							<li><a href="#">Company</a></li>
+							<li><a href="#">About Fantasy Football</a></li>
+							<li><a href="#">Subscription</a></li>
+							<li><a href="#">Contact Us</a></li>
+						</ul>
+						<div class="drop-holder visible-sm visible-xs">
+							<span>Follow Us</span>
+							<ul class="social-networks">
+								<li><a class="fa fa-github" href="#"></a></li>
+								<li><a class="fa fa-twitter" href="#"></a></li>
+								<li><a class="fa fa-facebook" href="#"></a></li>
+							</ul>
+						</div>
+					</div>
+				</nav> -->
+			</div>
+		</header>
+
+		<!-- jumbotron -->
+		<section class="visual">
+			<div class="container">
+				<div class='col-md-12'>
+					<div class="text-block">
+						<div class="heading-holder">
+							<h1>Fantasy Football AI Assistant</h1>
+							<p>Play to Win</p>
+						</div>
+						<div class="heading-holder">
+							<h2>Conquer your league!</h2>
+
+						</div>
+						<span class="info">Get started now</span>
+					</div>
+				</div>
+			</div>
+			<img src="static/images/football_stadium.jpg" alt="" class="bg-stretch">
+		</section>
+
+		<section class="visual">
+			<img src="static/images/football_field2.jpg" alt="" class="bg-stretch2">
+
+			<div class="visual-container">
+
+				<div class="container">
+					<div class="row">
+
+						<div class="col-lg-8">
+
+							<div class="btn-group d-flex justify-content-center" id="playerFilter" role="group"
+								aria-label="Player Filter">
+								<button type="button" class="btn btn-secondary"
+									onclick="updateAllCharts('All')">All</button>
+								<button type="button" class="btn btn-secondary"
+									onclick="updateAllCharts('QB')">QB</button>
+								<button type="button" class="btn btn-secondary"
+									onclick="updateAllCharts('RB')">RB</button>
+								<button type="button" class="btn btn-secondary"
+									onclick="updateAllCharts('WR')">WR</button>
+								<button type="button" class="btn btn-secondary"
+									onclick="updateAllCharts('TE')">TE</button>
+							</div>
+							<div class='bubble'>
+								<!-- <div class="col-md-8"> -->
+								<div class='text-box'>
+									<table class="table table-striped" id="playerTable">
+										<thead>
+											<tr>
+												<th>Player</th>
+												<th>Points 2021</th>
+												<th>POS</th>
+												<th>PROD</th>
+												<th>ATP</th>
+												<th>Team</th>
+												<th>Avg</th>
+												<th>Prediction</th>
+												<th>Add to Roster</th>
+											</tr>
+										</thead>
+										<tbody></tbody>
+									</table>
+								</div>
+							</div>
+							<div class='bubble'>
+								<!-- <div class="col-md-8"> -->
+								<div class='text-box'>
+									<table class="table table-striped" id="teamTable">
+										<thead>
+											<tr>
+												<th>Team</th>
+												<th>Add to Roster</th>
+											</tr>
+										</thead>
+										<tbody></tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<!-- user roster -->
+						<div class="col-md-4">
+							<div class='container'>
+								<h3 class="text-box roster" style="background-color:#26598b; color:aliceblue">User Roster</h3>
+
+								<div id="userRoster" class="row align-items-start">
+								</div>
+
+								<button type="button" class="btn btn-warning" onclick="resetLines()">Reset</button>
+								<h3 class="text-box roster" style="background-color:#26598b; color:aliceblue">Team Roster</h3>
+
+								<div id="teamRoster">
+
+								</div>
+								<!-- <div class="container" id="userRoster"> -->
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+				<div class="container">
+					<div class="col-sm-12">
+						<div class='bubble'>
+							<h2 class="text-box"> Prediction Wheel</h2>
+							<h3 class='text-box'> AI predicted draft positions</h3>
+							<!-- Create a div where the graph will take place -->
+							<div id="radialChart">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+	</div>
+
+	</section>
+	<!-- <div class="visual-area">
+			<div class="container">
+				<h2>Pricing Plans</h2>
+				<div class="pricing-tables">
+					<div class="plan">
+		                <div class="head">
+		                    <h3>Students</h3>
+		                </div>
+		                <div class="price">
+		                    <span class="price-main"><span class="symbol">$</span>8</span>
+		                    <span class="price-additional">per month</span>
+		                </div>
+		                <ul class="item-list">
+		                    <li>Personal License</li>
+		                </ul>
+		                <button type="button" class="btn btn-default rounded">purchase</button>
+		            </div>
+		            <div class="plan">
+		                <div class="head">
+		                    <h3>professional</h3> </div>
+		                <div class="price">
+		                    <span class="price-main"><span class="symbol">$</span>19</span>
+		                    <span class="price-additional">per month</span>
+		                </div>
+		                    <ul class="item-list">
+		                       <li>Professional License</li>
+		                       <li>Email Support</li>
+		                    </ul>
+		                <button type="button" class="btn btn-default rounded">purchase</button>
+		            </div>
+		            <div class="plan recommended">
+		                <div class="head">
+		                    <h3>agency</h3> </div>
+		                <div class="price">
+		                    <span class="price-main"><span class="symbol">$</span>49</span>
+		                    <span class="price-additional">per month</span>
+		                </div>
+		                    <ul class="item-list">
+		                        <li>1-12 Team Members</li>
+		                        <li>Phone Support</li>
+		                    </ul>
+		                <button type="button" class="btn btn-default rounded">purchase</button>
+		            </div>
+		            <div class="plan">
+		                <div class="head">
+		                    <h3>enterprise</h3> </div>
+		                <div class="price">
+		                    <span class="price-main"><span class="symbol">$</span>79</span>
+		                    <span class="price-additional">per month</span>
+		                </div>
+		                <ul class="item-list">
+		                    <li>Unlimited Team Members</li>
+		                    <li>24/ 7 Phone Support</li>
+		                </ul>
+		                <button type="button" class="btn btn-default rounded">purchase</button>
+		            </div>
+				</div>
+ 			</div>
+		</div>
+	</section>
+    
+    
+    <section class="main-zero-padd">
+    <img src="images/video-placeholder.jpg" alt="" style="max-width:100%;" />
+		
+
+
+
+
+
+	</section>
+    
+	<section class="area">
+		<div class="container">
+			<div class="subscribe">
+				<h3>Subscribe to Our Newsletter</h3>
+				<form class="form-inline">
+					<button type="submit" class="btn btn-primary rounded">Subscribe</button>
+					<div class="form-group">
+						<input type="email" class="form-control rounded" id="exampleInputEmail2" placeholder="Email...">
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+	
+	<footer id="footer">
+		<div class="container">
+			<div class="footer-holder">
+				<div class="row  text-center">
+					<div class="col-md-12">
+						<a href="#"><img src="images/logo-footer.png" alt="Sports HTML Template"></a>
+					</div>
+					  
+				</div>
+                <div class="row">
+                	<div id="cta" class="cta-footer">
+                        <a href="javascript:" class="btn btn-primary rounded">Start Training Now</a>
+                        <p>Every day is a challenge, change your life now.</p>
+                    </div>
+                </div>
+                <div class="row">
+                	<div class="col-md-6">
+                    	<h3>We live your galaxy</h3>
+                        
+                        <p>
+                        	15 New Street, Badass Suite, Greyland, Wetworld.
+                        </p>
+                    </div>
+                    
+                    <div class="col-md-6 text-right">
+                    	<ul class="social">
+                        	<li><a href="javascript:"><i class="fa fa-facebook-f"></i></a></li>
+                            <li><a href="javascript:"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="javascript:"><i class="fa fa-dribbble"></i></a></li>
+                            <li><a href="javascript:"><i class="fa fa-pinterest"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+			</div>
+		</div>
+	</footer>
+</div> -->
+	</div>
+
+	<!-- <script src="js/jquery-1.11.2.min.js"></script> -->
+	<!-- <script src="js/bootstrap.js"></script> -->
+	<!-- <script src="js/jquery.main.js"></script> -->
+	<script src="static/index.js"></script>
+</body>
+
+</html>
